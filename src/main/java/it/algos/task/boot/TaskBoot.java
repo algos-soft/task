@@ -26,6 +26,10 @@ public class TaskBoot extends BaseBoot {
     public TaskBoot() {
     }
 
+    public void inizia() {
+        super.inizia();
+        this.creaTask();
+    }
 
     /**
      * Aggiunge al menu le @Route (view) standard e specifiche <br>
@@ -67,23 +71,13 @@ public class TaskBoot extends BaseBoot {
     }
 
 
-    protected boolean checkResetStartup() {
-        if (super.checkResetStartup()) {
-            for (ModuloService modulo : moduloServiceListProject) {
-                modulo.checkResetStartup();
-            }
-        }
-
-        return false;
-    }
-
-    protected void printInfoModuli() {
-        // @todo  rimettere
-        //        super.printInfoModuli();
-        //
-        //        for (CrudModulo modulo : crudModuloListProject) {
-        //            modulo.checkReset();
-        //        }
+    protected void creaTask() {
+//        TaskVar.taskList.add(appContext.getBean(TaskDownloadBioServer.class));
+//        TaskVar.taskList.add(appContext.getBean(TaskDeleteBioServer.class));
+//        TaskVar.taskList.add(appContext.getBean(TaskElaboraBioMongo.class));
+//        TaskVar.taskList.add(appContext.getBean(TaskUploadMortiAnnoCorrente.class));
+//        TaskVar.taskList.add(appContext.getBean(TaskUploadGiorni.class));
+//        TaskVar.taskList.add(appContext.getBean(TaskUploadAnni.class));
     }
 
 
