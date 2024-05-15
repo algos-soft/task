@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.*;
  */
 @PageTitle("Task")
 @Route(value = "task", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.utility)
+@AView(menuGroup = MenuGroup.task)
 public class TaskView extends CrudView {
 
 
