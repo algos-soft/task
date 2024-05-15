@@ -1,6 +1,7 @@
 package it.algos.task.schedule;
 
 import it.algos.task.boot.*;
+import it.algos.task.enumeration.*;
 import it.algos.task.task.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.boot.*;
