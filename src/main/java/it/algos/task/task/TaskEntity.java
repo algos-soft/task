@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 import java.time.*;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
