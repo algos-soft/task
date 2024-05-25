@@ -10,6 +10,7 @@ import it.algos.vbase.backend.pref.*;
 import it.algos.vbase.backend.service.*;
 import it.algos.vbase.backend.wrapper.*;
 import it.sauronsoftware.cron4j.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.*;
 
 import javax.inject.*;
@@ -28,6 +29,9 @@ public abstract class BaseTask extends Task {
     @Inject
     protected TaskService taskService;
 
+    @Autowired
+    DateService dateService;
+
     protected long inizio;
 
     protected TypeSchedule typeSchedule;
@@ -37,6 +41,9 @@ public abstract class BaseTask extends Task {
     protected IPref flagAttivazione;
 
     protected IPref flagPrevisione;
+
+    protected boolean usaMail = false;
+
 
     /**
      * Istanza di una interfaccia <br>
@@ -124,41 +131,20 @@ public abstract class BaseTask extends Task {
     }
 
     public void logTaskEseguito() {
-        long fine = System.currentTimeMillis();
-        String message;
-        String clazzName;
-        long delta = fine - inizio;
-        delta = delta / 1000 / 60;
-
-        clazzName = this.getClass().getSimpleName();
-        message = String.format("%s%s%s %s eseguita in %s minuti", clazzName, FORWARD, descrizioneTask, getPatternQuadre(), delta);
-
+        String message = String.format("%s Eseguita in %s", getInfo(), dateService.deltaText(inizio));
         logger.info(new WrapLog().type(TypeLog.task).message(message).usaDb());
-        if (Pref.usaSendMail.is()) {
-            message = String.format("%s %s eseguita in %s minuti", descrizioneTask, getPatternQuadre(), delta);
+
+        if (Pref.usaSendMail.is() && usaMail) {
             mailService.send(getClass().getSimpleName(), message);
         }
     }
 
     public void logTaskNonEseguito() {
-        String message;
-        String clazzName;
-
-        clazzName = this.getClass().getSimpleName();
-        message = String.format("%s%s%s %s non eseguita per flag disabilitato", clazzName, FORWARD, descrizioneTask, getPatternQuadre());
+        String message = String.format("%s Non eseguita per flag disabilitato.", getInfo());
         logger.info(new WrapLog().type(TypeLog.task).message(message).usaDb());
 
-        if (Pref.usaSendMail.is()) {
-            message = this.getClass().getSimpleName();
-            message += CAPO;
-            message += typeSchedule.getPatternQuadre();
-            message += CAPO;
-            message += String.format("%s=spento", flagAttivazione);
-            message += descrizioneTask;
-            mailService.send(BaseVar.projectCurrent, message);
-
-            //            message = String.format("%s %s non eseguita per flag disabilitato", descrizioneTask, getPattern());
-            //            mailService.send(BaseVar.projectCurrent, message);
+        if (Pref.usaSendMail.is() && usaMail) {
+            mailService.send(getClass().getSimpleName(), message);
         }
     }
 
@@ -218,18 +204,18 @@ public abstract class BaseTask extends Task {
         return null;
     }
 
-     public void creaLog(String risultatoBreve) {
+    public void creaLog(String risultatoBreve) {
         creaLog(risultatoBreve, "Eventuale dettaglio da regolare");
     }
 
     public void creaLogNonEseguito() {
-      String risultatoBreve="Non eseguita per flag disabilitato";
+        String risultatoBreve = "Non eseguita per flag disabilitato";
         String nome = this.getClass().getSimpleName();
         String flag = flagAttivazione != null ? flagAttivazione.getKeyCode() : "Nessun flag";
         String schedule = this.typeSchedule.getPatternQuadre();
         LocalDateTime evento = LocalDateTime.now();
         String server = "Pippo";
-        taskService.creaAlways(nome, flag, schedule, evento, server, false,risultatoBreve,VUOTA);
+        taskService.creaAlways(nome, flag, schedule, evento, server, false, risultatoBreve, VUOTA);
     }
 
     public void creaLog(String risultatoBreve, String risultatoEsteso) {
@@ -239,9 +225,40 @@ public abstract class BaseTask extends Task {
         LocalDateTime evento = LocalDateTime.now();
         String server = "Pippo";
 
-        taskService.creaAlways(nome, flag, schedule, evento, server, true,risultatoBreve, risultatoEsteso);
+        taskService.creaAlways(nome, flag, schedule, evento, server, true, risultatoBreve, risultatoEsteso);
         //            TaskEntity entity= TaskEntity.newEntity(nome, flag, schedule, evento, server, descrizione, risultato);
         //            mongoService.save(entity);
     }
+
+
+    public String getInfoNota() {
+        return String.format("%s %s", getInfo(), getTypeSchedule().getNota());
+    }
+
+
+    public String getInfo() {
+        String clazz;
+        String schedule;
+        String flag;
+        String descrizione;
+
+        clazz = this.getClass().getSimpleName();
+        schedule = this.getPatternQuadre();
+        if (this.getFlagAttivazione() != null) {
+            if (this.getFlagAttivazione().is()) {
+                flag = String.format("%s=acceso", this.getFlagAttivazione().getKeyCode());
+            }
+            else {
+                flag = String.format("%s=spento", this.getFlagAttivazione().getKeyCode());
+            }
+        }
+        else {
+            flag = String.format("%s=non previsto", this.getFlagAttivazione().getKeyCode());
+        }
+        descrizione = this.getDescrizioneTask();
+
+        return String.format("%s %s %s%s%s", clazz, schedule, flag, FORWARD, descrizione);
+    }
+
 
 }

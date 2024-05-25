@@ -5,6 +5,7 @@ import com.vaadin.flow.spring.annotation.*;
 import it.algos.task.boot.*;
 import it.algos.vbase.backend.boot.*;
 import it.sauronsoftware.cron4j.*;
+import jakarta.annotation.*;
 import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
 
@@ -24,6 +25,7 @@ public  class BaseSchedule extends Scheduler {
     /**
      * Aggiunge i task alla superclasse per l'esecuzione <br>
      */
+    @PostConstruct
     public void start() throws IllegalStateException {
         if (!isStarted()) {
             super.start();
