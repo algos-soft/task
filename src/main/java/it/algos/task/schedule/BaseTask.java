@@ -36,14 +36,13 @@ public abstract class BaseTask extends Task {
 
     protected TypeSchedule typeSchedule;
 
-    protected String descrizioneTask;
+    //    protected String descrizioneTask;
 
     protected IPref flagAttivazione;
 
     protected IPref flagPrevisione;
 
     protected boolean usaMail = false;
-
 
     /**
      * Istanza di una interfaccia <br>
@@ -113,7 +112,7 @@ public abstract class BaseTask extends Task {
 
 
     public String getDescrizioneTask() {
-        return descrizioneTask;
+        return flagAttivazione != null ? flagAttivazione.getDescrizione() : "Manca";
     }
 
 
@@ -126,8 +125,10 @@ public abstract class BaseTask extends Task {
     }
 
     public void logTaskEseguito(String risultato) {
-        String message = descrizioneTask + CAPO + risultato;
-        mailService.send(BaseVar.nameServer, message);
+        if (Pref.usaSendMail.is()) {
+            String message = getDescrizioneTask() + CAPO + risultato;
+            mailService.send(BaseVar.nameServer, message);
+        }
     }
 
     public void logTaskEseguito() {

@@ -48,11 +48,15 @@ public enum TypeSchedule {
     /**
      * Descrizione: ogni minuto
      */
-    minuto("* * * * *", "ogni minuto."),
+    everyMinuto("* * * * *", "ogni minuto."),
+    /**
+     * Descrizione: ogni minuto
+     */
+    everyHour("16 * * * *", "ogni ora."),
     /**
      * Descrizione: ogni cinque minuti
      */
-    cinqueMinuti("*/5 * * * *", "ogni cinque minuti di ogni ora."),
+    everyCinqueMinuti("*/5 * * * *", "ogni cinque minuti di ogni ora."),
 
     everyUna("0 1 * * *", "ogni giorno all'una (1:00)."),
     everyDue("0 2 * * *", "ogni giorno alle due (2:00)."),
