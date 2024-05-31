@@ -52,7 +52,7 @@ public enum TypeSchedule {
     /**
      * Descrizione: ogni minuto
      */
-    everyHour("16 * * * *", "ogni ora."),
+    everyHour("22 * * * *", "ogni ora."),
     /**
      * Descrizione: ogni cinque minuti
      */
