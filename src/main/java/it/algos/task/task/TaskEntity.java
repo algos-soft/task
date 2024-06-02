@@ -17,28 +17,34 @@ import java.time.*;
 @AEntity(sortPropertyName = "evento", sortDiscendente = true)
 public class TaskEntity extends AbstractEntity {
 
-    @AField(type = TypeField.text, widthList = 10)
+    @AFieldList(width = 10)
+    @AField(type = TypeField.text)
     public String nome;
 
-    @AField(type = TypeField.text, widthList = 16)
+    @AFieldList(width = 16)
+    @AField(type = TypeField.text)
     public String flag;
 
-    @AField(type = TypeField.text, widthList = 8)
+    @AFieldList(width = 8)
+    @AField(type = TypeField.text)
     public String schedule;
 
     /**
      * Data dell'evento (obbligatoria, non modificabile)
      */
-    @AField(type = TypeField.localDateTime, typeDate = TypeDate.normaleOrario, widthList = 10)
+    @AFieldList(width = 10)
+    @AField(type = TypeField.localDateTime, typeDate = TypeDate.normaleOrario)
     private LocalDateTime evento;
 
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     public String server;
 
     @AField(type = TypeField.booleano)
     public boolean status;
 
-    @AField(type = TypeField.text, widthList = 24)
+    @AFieldList(width = 24)
+    @AField(type = TypeField.text)
     public String descrizione;
 
     @AField(type = TypeField.textArea, visibileList = false)
