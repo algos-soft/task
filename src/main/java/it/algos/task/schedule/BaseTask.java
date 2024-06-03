@@ -254,7 +254,7 @@ public abstract class BaseTask extends Task {
             }
         }
         else {
-            flag = String.format("%s=non previsto", this.getFlagAttivazione().getKeyCode());
+            flag = String.format("Flag attivazione=non previsto");
         }
         descrizione = this.getDescrizioneTask();
 
