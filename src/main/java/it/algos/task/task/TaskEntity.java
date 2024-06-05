@@ -47,7 +47,7 @@ public class TaskEntity extends AbstractEntity {
     @AField(type = TypeField.text)
     public String descrizione;
 
-    @AFieldList(visibile = false)
+    @AFieldList(visible = false)
     @AField(type = TypeField.textArea)
     public String risultato;
 
