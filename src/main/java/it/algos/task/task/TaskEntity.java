@@ -14,7 +14,7 @@ import java.time.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "task")
-@AEntity(sortPropertyName = "evento", sortDiscendente = true)
+@AEntity(sort = "evento", sortDiscendente = true)
 public class TaskEntity extends AbstractEntity {
 
     @AFieldList(width = 10)
