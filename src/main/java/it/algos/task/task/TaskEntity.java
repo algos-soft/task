@@ -1,12 +1,12 @@
 package it.algos.task.task;
 
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.backend.annotation.AEntity;
+import it.algos.vbase.backend.annotation.AFieldList;
+import it.algos.vbase.backend.entity.AbstractEntity;
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.*;
+import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -18,37 +18,33 @@ import java.time.*;
 public class TaskEntity extends AbstractEntity {
 
     @AFieldList(width = 10)
-    @AField(type = TypeField.text)
     public String nome;
 
     @AFieldList(width = 16)
-    @AField(type = TypeField.text)
     public String flag;
 
     @AFieldList(width = 8)
-    @AField(type = TypeField.text)
     public String schedule;
 
     /**
      * Data dell'evento (obbligatoria, non modificabile)
      */
     @AFieldList(width = 10)
-    @AField(type = TypeField.localDateTime, typeDate = TypeDate.normaleOrario)
+//    @AField(type = TypeField.localDateTime, typeDate = TypeDate.normaleOrario)
     private LocalDateTime evento;
 
     @AFieldList(width = 6)
-    @AField(type = TypeField.text)
     public String server;
 
-    @AField(type = TypeField.booleano)
+    @AFieldList()
+//    @AField(type = TypeField.booleano)
     public boolean status;
 
     @AFieldList(width = 24)
-    @AField(type = TypeField.text)
     public String descrizione;
 
     @AFieldList(visible = false)
-    @AField(type = TypeField.textArea)
+//    @AField(type = TypeField.textArea)
     public String risultato;
 
     @Override
