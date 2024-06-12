@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.*;
  *
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
-@PageTitle("Task")
 @Route(value = "task", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.task)
+@AView(menuName = "Task", menuGroup = MenuGroup.task)
 public class TaskView extends CrudView {
 
 
