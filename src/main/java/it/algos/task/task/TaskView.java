@@ -6,6 +6,8 @@ import it.algos.vbase.ui.view.CrudView;
 import it.algos.vbase.ui.view.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static it.algos.task.boot.TaskCost.GROUP_TASK;
+
 /**
  * Project base24
  * Created by Algos
@@ -16,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "task", layout = MainLayout.class)
-@AView(menuName = "Task")
+@AView(menuGroup = GROUP_TASK, menuName = "Task")
 public class TaskView extends CrudView {
 
 
