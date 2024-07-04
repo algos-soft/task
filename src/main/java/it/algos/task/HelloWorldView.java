@@ -9,7 +9,6 @@ import com.vaadin.flow.router.RouteAlias;
 import it.algos.vbase.ui.view.MainLayout;
 
 @Route(value = "hello", layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
 @Uses(Icon.class)
 public class HelloWorldView extends Composite<VerticalLayout> {
 
