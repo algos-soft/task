@@ -1,22 +1,25 @@
 package it.algos.task.task;
 
-import ch.carnet.kasparscherrer.*;
-import com.vaadin.flow.component.combobox.*;
-import com.vaadin.flow.component.textfield.*;
-import com.vaadin.flow.spring.annotation.*;
-import it.algos.task.boot.*;
-import it.algos.task.schedule.*;
-import it.algos.vbase.backend.boot.*;
-import it.algos.vbase.backend.list.*;
-import it.algos.vbase.ui.wrapper.*;
-import jakarta.annotation.*;
-import static org.springframework.beans.factory.config.BeanDefinition.*;
+import ch.carnet.kasparscherrer.IndeterminateCheckbox;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import it.algos.task.boot.TaskVar;
+import it.algos.task.schedule.BaseTask;
+import it.algos.vbase.backend.annotation.AList;
+import it.algos.vbase.backend.boot.BaseCost;
+import it.algos.vbase.backend.list.CrudList;
+import it.algos.vbase.ui.wrapper.ASpan;
+import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Scope;
 
-import javax.inject.*;
+import javax.inject.Inject;
+
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
+@AList()
 public class TaskList extends CrudList {
 
     @Inject
