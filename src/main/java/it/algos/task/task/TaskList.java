@@ -60,13 +60,6 @@ public class TaskList extends CrudList {
 
     protected void fixPreferenze() {
         super.fixPreferenze();
-
-//        super.usaBottoneDeleteAll = true;
-//        super.usaBottoneNew = false;
-        super.usaSelettoreColonne = true;
-//        super.usaBottoneEdit = false;
-//        super.usaBottoneShow = true;
-//        super.usaBottoneSearchField = false;
     }
 
     @PostConstruct
