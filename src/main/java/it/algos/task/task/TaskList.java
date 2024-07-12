@@ -64,8 +64,8 @@ public class TaskList extends CrudList {
 //        super.usaBottoneDeleteAll = true;
 //        super.usaBottoneNew = false;
         super.usaSelettoreColonne = true;
-        super.usaBottoneEdit = false;
-        super.usaBottoneShow = true;
+//        super.usaBottoneEdit = false;
+//        super.usaBottoneShow = true;
 //        super.usaBottoneSearchField = false;
     }
 
