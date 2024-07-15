@@ -104,7 +104,7 @@ public class TaskList extends CrudList {
 
 
     @Override
-    public void syncHeader() {
+    public void fixHeader() {
         this.headerPlaceHolder();
     }
 
