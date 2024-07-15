@@ -11,9 +11,8 @@ import it.algos.vbase.backend.boot.BaseCost;
 import it.algos.vbase.backend.list.CrudList;
 import it.algos.vbase.ui.wrapper.ASpan;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-
-import javax.inject.Inject;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
@@ -22,7 +21,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @AList()
 public class TaskList extends CrudList {
 
-    @Inject
+    @Autowired
     TaskService taskService;
 
     static final String FIELD_NOME = "nome";

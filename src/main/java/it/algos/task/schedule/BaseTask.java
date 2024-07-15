@@ -1,21 +1,25 @@
 package it.algos.task.schedule;
 
-import it.algos.task.boot.*;
-import it.algos.task.enumeration.*;
-import it.algos.task.task.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
-import it.algos.vbase.backend.boot.*;
-import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.backend.pref.*;
-import it.algos.vbase.backend.service.*;
-import it.algos.vbase.backend.wrapper.*;
-import it.sauronsoftware.cron4j.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.context.*;
+import it.algos.task.boot.TaskVar;
+import it.algos.task.enumeration.TypeSchedule;
+import it.algos.task.task.TaskService;
+import it.algos.vbase.backend.boot.BaseVar;
+import it.algos.vbase.backend.enumeration.TypeLog;
+import it.algos.vbase.backend.pref.IPref;
+import it.algos.vbase.backend.pref.Pref;
+import it.algos.vbase.backend.service.DateService;
+import it.algos.vbase.backend.service.LoggerService;
+import it.algos.vbase.backend.service.MailService;
+import it.algos.vbase.backend.wrapper.WrapLog;
+import it.sauronsoftware.cron4j.Task;
+import it.sauronsoftware.cron4j.TaskExecutionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
-import javax.inject.*;
-import java.time.*;
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import static it.algos.vbase.backend.boot.BaseCost.*;
 
 /**
  * Project vaad24
@@ -26,7 +30,7 @@ import java.util.*;
  */
 public abstract class BaseTask extends Task {
 
-    @Inject
+    @Autowired
     protected TaskService taskService;
 
     @Autowired
@@ -49,7 +53,7 @@ public abstract class BaseTask extends Task {
      * Iniettata automaticamente dal framework SpringBoot con l'Annotation @Autowired <br>
      * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
      */
-    @Inject
+    @Autowired
     public ApplicationContext appContext;
 
     /**
@@ -57,10 +61,10 @@ public abstract class BaseTask extends Task {
      * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
      * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
      */
-    @Inject
+    @Autowired
     protected LoggerService logger;
 
-    @Inject
+    @Autowired
     MailService mailService;
 
     /**
