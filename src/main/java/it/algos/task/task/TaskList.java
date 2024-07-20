@@ -91,14 +91,14 @@ public class TaskList extends CrudList {
         //--creazione 'ad hoc' di un comboBox (semistandard) per selezionare la property nome
         comboNome = super.creaFiltroCombo(FIELD_NOME, taskService.taskCorrenti(), 12);
 
-        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare il contenuto (non l'inizio) del testo della property -> flag
-        searchFlag = super.creaFiltroText(FIELD_FLAG);
-
-        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare il contenuto (non l'inizio) del testo della property -> server
-        searchServer = super.creaFiltroText(FIELD_SERVER);
-
-        //--creazione 'ad hoc' di un checkBox (semistandard) per selezionare la property booleana
-        checkStatus = this.creaFiltroCheckBox(FIELD_STATUS);
+//        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare il contenuto (non l'inizio) del testo della property -> flag
+//        searchFlag = super.creaFiltroText(FIELD_FLAG);
+//
+//        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare il contenuto (non l'inizio) del testo della property -> server
+//        searchServer = super.creaFiltroText(FIELD_SERVER);
+//
+//        //--creazione 'ad hoc' di un checkBox (semistandard) per selezionare la property booleana
+//        checkStatus = this.creaFiltroCheckBox(FIELD_STATUS);
 
     }
 
@@ -111,17 +111,17 @@ public class TaskList extends CrudList {
 
     @Override
     protected void syncFiltri() {
-        //--filtraggio del database in funzione del valore della property
-        super.filtroCombo(comboNome, FIELD_NOME);
-
-        //--filtraggio del database in funzione del valore della property (contenuto del testo e non inizio)
-        super.filtroContenutoText(searchFlag, FIELD_FLAG);
-
-        //--filtraggio del database in funzione del valore della property
-        super.filtroContenutoText(searchServer, FIELD_SERVER);
-
-        //--filtraggio del database in funzione del valore della property
-        super.filtroCheckBox(checkStatus, FIELD_STATUS);
+//        //--filtraggio del database in funzione del valore della property
+//        super.filtroCombo(comboNome, FIELD_NOME);
+//
+//        //--filtraggio del database in funzione del valore della property (contenuto del testo e non inizio)
+//        super.filtroContenutoText(searchFlag, FIELD_FLAG);
+//
+//        //--filtraggio del database in funzione del valore della property
+//        super.filtroContenutoText(searchServer, FIELD_SERVER);
+//
+//        //--filtraggio del database in funzione del valore della property
+//        super.filtroCheckBox(checkStatus, FIELD_STATUS);
     }
 
 
