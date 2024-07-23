@@ -3,6 +3,7 @@ package it.algos.task.task;
 import ch.carnet.kasparscherrer.IndeterminateCheckbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.provider.SortDirection;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.task.boot.TaskVar;
 import it.algos.task.schedule.BaseTask;

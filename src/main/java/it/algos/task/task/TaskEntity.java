@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Document(collection = "task")
-@AEntity(sort = "evento", sortDiscendente = true)
 public class TaskEntity extends AbstractEntity {
 
     @AFieldList(width = 10)
