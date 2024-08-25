@@ -58,6 +58,7 @@ public enum TypeSchedule {
      */
     everyCinqueMinuti("*/5 * * * *", "ogni cinque minuti di ogni ora."),
 
+    everyZero("0 0 * * *", "ogni giorno a mezzanotte (0:00)."),
     everyUna("0 1 * * *", "ogni giorno all'una (1:00)."),
     everyDue("0 2 * * *", "ogni giorno alle due (2:00)."),
     everyZeroTrenta(SCHEDULED_EVERY_ZERO_TRENTA, "ogni giorno a mezzanotte e mezzo (0:30)."),
