@@ -3,11 +3,10 @@ package it.algos.task.task;
 import ch.carnet.kasparscherrer.IndeterminateCheckbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.provider.SortDirection;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.task.boot.TaskVar;
 import it.algos.task.schedule.BaseTask;
-import it.algos.vbase.backend.annotation.AList;
+import it.algos.vbase.backend.annotation.AViewList;
 import it.algos.vbase.backend.boot.BaseCost;
 import it.algos.vbase.backend.list.CrudList;
 import it.algos.vbase.ui.wrapper.ASpan;
@@ -19,7 +18,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-@AList()
+@AViewList()
 public class TaskList extends CrudList {
 
     @Autowired
