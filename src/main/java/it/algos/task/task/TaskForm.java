@@ -20,8 +20,8 @@ public class TaskForm extends CrudForm {
 
 
     //--new entityBean and update existing entityBean
-    public TaskForm(final CrudList parentCrudList, AbstractEntity entityBean, CrudOperation operation) {
-        super(parentCrudList, entityBean, operation);
+    public TaskForm(final AList parentAList, AbstractEntity entityBean, CrudOperation operation) {
+        super(parentAList, entityBean, operation);
     }
 
 

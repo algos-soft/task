@@ -8,7 +8,7 @@ import it.algos.task.boot.TaskVar;
 import it.algos.task.schedule.BaseTask;
 import it.algos.vbase.backend.annotation.AViewList;
 import it.algos.vbase.backend.boot.BaseCost;
-import it.algos.vbase.backend.list.CrudList;
+import it.algos.vbase.backend.list.AList;
 import it.algos.vbase.ui.wrapper.ASpan;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
 @AViewList()
-public class TaskList extends CrudList {
+public class TaskList extends AList {
 
     @Autowired
     TaskService taskService;
@@ -125,4 +125,4 @@ public class TaskList extends CrudList {
     }
 
 
-}// end of CrudList class
+}// end of AList class
