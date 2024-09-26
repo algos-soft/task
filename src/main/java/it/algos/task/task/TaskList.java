@@ -45,11 +45,6 @@ public class TaskList extends AList {
     IndeterminateCheckbox checkStatus;
 
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public TaskList() {
-        super();
-    }
-
     /**
      * @param parentCrudView che crea questa istanza
      */
@@ -78,8 +73,7 @@ public class TaskList extends AList {
         addH(ASpan.text(BaseCost.SPAZIO_NON_BREAKING));
         if (TaskVar.taskList == null || TaskVar.taskList.isEmpty()) {
             addH(ASpan.text("Non ci sono task previste per questa applicazione").blue());
-        }
-        else {
+        } else {
             addH(ASpan.text("Task previste per questa applicazione:").blue());
             for (BaseTask task : TaskVar.taskList) {
                 addH(ASpan.text(task.infoFlag()).rosso());
