@@ -83,7 +83,7 @@ public class TaskList extends AList {
 
     private void topPlaceHolder() {
         //--creazione 'ad hoc' di un comboBox (semistandard) per selezionare la property nome
-        comboNome = super.creaFiltroCombo(FIELD_NOME, taskService.taskCorrenti(), 12);
+//        comboNome = super.creaFiltroCombo(FIELD_NOME, taskService.taskCorrenti(), 12);
 
 //        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare il contenuto (non l'inizio) del testo della property -> flag
 //        searchFlag = super.creaFiltroText(FIELD_FLAG);
