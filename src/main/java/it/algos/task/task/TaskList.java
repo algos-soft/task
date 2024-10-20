@@ -62,23 +62,23 @@ public class TaskList extends AList {
     }
 
     private void headerPlaceHolder() {
-        addH(ASpan.text("La classe base è [Schedule.BaseSchedule]").verde());
-        addH(ASpan.text("Ogni task ha una sua classe derivata dalla classe astratta [Schedule.BaseTask]").verde());
-        addH(ASpan.text("Crea le istanze di task nel metodo della sottoclasse [xxxBoot.creaTask()]").verde());
-        addH(ASpan.text("Le task vengono elencate nella variabile globale [BaseVar.taskList]").verde());
-        addH(ASpan.text("Lancia l'esecuzione di tutte le task programmate creando l'istanza [Schedule.BaseSchedule]").verde());
-        addH(ASpan.text("Può esserci un flag di preferenza acceso/spento per attivare la task. Se manca, la task è attiva di default").verde());
-        addH(ASpan.text("Tavola ordinata per evento decrescente").verde());
-
-        addH(ASpan.text(BaseCost.SPAZIO_NON_BREAKING));
-        if (TaskVar.taskList == null || TaskVar.taskList.isEmpty()) {
-            addH(ASpan.text("Non ci sono task previste per questa applicazione").blue());
-        } else {
-            addH(ASpan.text("Task previste per questa applicazione:").blue());
-            for (BaseTask task : TaskVar.taskList) {
-                addH(ASpan.text(task.infoFlag()).rosso());
-            }
-        }
+//        addH(ASpan.text("La classe base è [Schedule.BaseSchedule]").verde());
+//        addH(ASpan.text("Ogni task ha una sua classe derivata dalla classe astratta [Schedule.BaseTask]").verde());
+//        addH(ASpan.text("Crea le istanze di task nel metodo della sottoclasse [xxxBoot.creaTask()]").verde());
+//        addH(ASpan.text("Le task vengono elencate nella variabile globale [BaseVar.taskList]").verde());
+//        addH(ASpan.text("Lancia l'esecuzione di tutte le task programmate creando l'istanza [Schedule.BaseSchedule]").verde());
+//        addH(ASpan.text("Può esserci un flag di preferenza acceso/spento per attivare la task. Se manca, la task è attiva di default").verde());
+//        addH(ASpan.text("Tavola ordinata per evento decrescente").verde());
+//
+//        addH(ASpan.text(BaseCost.SPAZIO_NON_BREAKING));
+//        if (TaskVar.taskList == null || TaskVar.taskList.isEmpty()) {
+//            addH(ASpan.text("Non ci sono task previste per questa applicazione").blue());
+//        } else {
+//            addH(ASpan.text("Task previste per questa applicazione:").blue());
+//            for (BaseTask task : TaskVar.taskList) {
+//                addH(ASpan.text(task.infoFlag()).rosso());
+//            }
+//        }
     }
 
     private void topPlaceHolder() {
